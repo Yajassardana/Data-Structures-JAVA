@@ -30,16 +30,30 @@ public class Max_Stack {
         FastScanner scanner = new FastScanner();
         int queries = scanner.nextInt();
         Stack<Integer> stack = new Stack<Integer>();
-
+        Stack<Integer> maxStack = new Stack<Integer>();
         for (int qi = 0; qi < queries; ++qi) {
             String operation = scanner.next();
             if ("push".equals(operation)) {
                 int value = scanner.nextInt();
-                stack.push(value);
+                if(stack.isEmpty()) {
+                	stack.push(value);
+                	maxStack.push(value);
+                }
+                else {
+                	if(value>maxStack.peek()) {
+                    	maxStack.push(value);
+                    }
+                    else {
+                    	maxStack.push(maxStack.peek());
+                    }
+                    stack.push(value);
+                }
+                
             } else if ("pop".equals(operation)) {
                 stack.pop();
+                maxStack.pop();
             } else if ("max".equals(operation)) {
-                System.out.println(Collections.max(stack));
+                System.out.println(maxStack.peek());
             }
         }
     }
