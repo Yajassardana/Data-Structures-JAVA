@@ -31,8 +31,21 @@ class Buffer {
     }
 
     public Response Process(Request request) {
-        // write your code here
-        return new Response(false, -1);
+        
+    	while(this.finish_time_.size()>0&&this.finish_time_.get(0)<=request.arrival_time) {
+    		this.finish_time_.remove(0);
+    	}
+    	if(this.finish_time_.size()==this.size_) {
+    		return new Response(true,-1);
+    	}
+    	if(this.finish_time_.size()==0) {
+    		this.finish_time_.add(request.arrival_time+request.process_time);
+    		return new Response(false,request.arrival_time);
+    	}
+    	int last = this.finish_time_.get(this.finish_time_.size()-1);
+    	this.finish_time_.add(last+request.process_time);
+    	return new Response(false,last);
+    	
     }
 
     private int size_;
