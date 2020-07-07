@@ -1,5 +1,5 @@
 # Data-Structures-JAVA
-A compilation of Data Strcutures in **JAVA** ranging from **Hash Tables** to **Bonary Search Trees** that I learnt over a span of 30 days.
+A compilation of Data Strcutures in **JAVA** ranging from **Hash Tables** to **Binary Search Trees** that I learnt over a span of 30 days.
 <br/>
 <br/>
 ![DataStructures](https://github.com/Yajassardana/Data-Structures-JAVA/blob/master/ReadMeImgs/data-structure-classification-in-java.jpg)
